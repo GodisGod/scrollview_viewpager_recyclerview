@@ -41,7 +41,7 @@ public class FragmentTwo extends Fragment {
     }
 
     private void initData() {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             strDatas.add("item  " + i);
         }
         adapterFragment.notifyDataSetChanged();

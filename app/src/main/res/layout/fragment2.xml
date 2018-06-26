@@ -7,8 +7,6 @@
         android:id="@+id/recycler_fragment"
         android:layout_width="match_parent"
         android:background="#8f8a"
-        android:focusableInTouchMode="true"
-        android:focusable="true"
         android:layout_height="match_parent" />
 
 </FrameLayout>

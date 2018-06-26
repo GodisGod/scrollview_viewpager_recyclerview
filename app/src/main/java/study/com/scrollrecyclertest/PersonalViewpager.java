@@ -8,6 +8,7 @@ import android.view.View;
 
 /**
  * Created by  HONGDA on 2018/6/15.
+ * 使用这个viewpager可以拦截事件，滑动事件会交给scrollview处理，而不会传递到recyclerview
  */
 public class PersonalViewpager extends ViewPager {
 
@@ -41,8 +42,8 @@ public class PersonalViewpager extends ViewPager {
     }
 
     @Override
-    public boolean onInterceptTouchEvent(MotionEvent ev) {
-        return canScroll;
+    public boolean onInterceptTouchEvent(MotionEvent ev) {//使用这个viewpager可以拦截事件，滑动事件会交给scrollview处理，而不会传递到recyclerview
+        return canScroll;//一但返回True（代表事件在当前的viewGroup中会被处理），则向下传递之路被截断（所有子控件将没有机会参与Touch事件），同时把事件传递给当前的控件的onTouchEvent()处理；返回false，则把事件交给子控件的onInterceptTouchEvent()
     }
 
 

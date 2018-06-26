@@ -13,6 +13,7 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private View viewStatusBar;
-    private PersonalViewpager viewPager;
+    private ViewPager viewPager;
     private TestPagerAdapter testPagerAdapter;
     private List<Fragment> fragments;
     private ObservableScrollView scrollView;
@@ -34,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
     private int maxDiff = 0;
     private int statusBarHeight = 0;
     private int topLayoutHeight = 0;
+
+    private TextView tvProduct;
+    private TextView tvLike;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +54,10 @@ public class MainActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.viewpager_main);
         lineTab = findViewById(R.id.line_tab);
         lineTab2 = findViewById(R.id.line_tab2);
-        viewPager.setCanScroll(false);//设置viewpager不能左右滑动
+        tvProduct = findViewById(R.id.tv_product);
+        tvLike = findViewById(R.id.tv_like);
+
+//        viewPager.setCanScroll(false);//设置viewpager不能左右滑动
         viewStatusBar = findViewById(R.id.view_status_bar);
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
@@ -113,6 +120,18 @@ public class MainActivity extends AppCompatActivity {
                     Log.i("LHD", "LHHD >>>>>>>>>>>>>  滑动到底部");
                     fragmentOne.loadMore();
                 }
+            }
+        });
+        tvProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewPager.setCurrentItem(0);
+            }
+        });
+        tvLike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewPager.setCurrentItem(1);
             }
         });
     }

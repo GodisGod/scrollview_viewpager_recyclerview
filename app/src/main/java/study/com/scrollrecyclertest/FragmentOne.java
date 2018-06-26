@@ -35,16 +35,16 @@ public class FragmentOne extends Fragment {
         strDatas = new ArrayList<>();
         adapterFragment = new AdapterFragment(getContext(), strDatas);
         recyclerView.setAdapter(adapterFragment);
-        WrappingGridLayoutManager gridLayoutManager = new WrappingGridLayoutManager(getContext(), 2, GridLayoutManager.VERTICAL, false);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2, GridLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setHasFixedSize(true);//固定自身size不受adapter变化影响
         //消除滑动卡顿现象 ...
-        recyclerView.setNestedScrollingEnabled(false);//限制recyclerview自身滑动特性,滑动全部靠scrollview完成
+//        recyclerView.setNestedScrollingEnabled(false);//限制recyclerview自身滑动特性,滑动全部靠scrollview完成
         initData();
     }
 
     private void initData() {
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 10; i++) {
             strDatas.add("item  " + i);
         }
         adapterFragment.notifyDataSetChanged();
